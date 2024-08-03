@@ -1,4 +1,4 @@
-# price_exchange_scraper
+# exchange_rate_scraper
 This Python script is designed to automate the process of scraping exchange rate data from the Eximbank website
 
 # Key Features:
