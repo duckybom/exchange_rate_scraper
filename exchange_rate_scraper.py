@@ -2,6 +2,7 @@ import time
 import keyboard
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from tabulate import tabulate
 
 # Store the previous sell prices
 previous_sell_prices = {}
@@ -26,7 +27,9 @@ def scrape_exchange_rates():
         # Fetch all rows of the table
         rows = table.find_elements(By.TAG_NAME, "tr")
 
-        # Process each row and print the data with percentage change
+        # Store data for the table
+        table_data = []
+
         for row in rows:
             columns = row.find_elements(By.TAG_NAME, "td")
             if columns:
@@ -47,7 +50,12 @@ def scrape_exchange_rates():
                 # Update the previous sell prices dictionary
                 previous_sell_prices[currency] = sell_price
 
-                print(f"Currency: {currency}, Buy (Cash): {buy_cash}, Buy (Transfer): {buy_transfer}, Sell: {sell}, Change: {change_str}")
+                # Append the row data to the table_data list
+                table_data.append([currency, buy_cash, buy_transfer, sell, change_str])
+
+        # Print the table using tabulate
+        headers = ["Currency", "Buy (Cash)", "Buy (Transfer)", "Sell", "Change (%)"]
+        print(tabulate(table_data, headers, tablefmt="pretty"))
 
     finally:
         # Close the browser
