@@ -1,4 +1,4 @@
-# price_exchange_scraper
+# exchange_rate_scraper
 This Python script is designed to automate the process of scraping exchange rate data from the Eximbank website
 
 
@@ -15,7 +15,6 @@ This Python script is designed to automate the process of scraping exchange rate
 
 
 # Use Cases:
-
 **Exchange Rate Monitoring:** Ideal for financial analysts, traders, or anyone needing regular updates on currency exchange rates.
 
 **Trend Analysis:** The percentage change feature helps track trends in currency fluctuations, providing valuable insights for decision-making.
